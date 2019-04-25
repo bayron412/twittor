@@ -19,13 +19,13 @@ const APP_SHELL = [
   'js/sw-utils.js'
 ];
 
-const APP_SHELL_IMMUTABLE = [
-  'https://fonts.googleapis.com/css?family=Quicksand:300,400',
-  'https://fonts.googleapis.com/css?family=Lato:400,300',
-  'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
-  'css/animate.css',
-  'js/libs/jquery.js'
-];
+// const APP_SHELL_IMMUTABLE = [
+//   'https://fonts.googleapis.com/css?family=Quicksand:300,400',
+//   'https://fonts.googleapis.com/css?family=Lato:400,300',
+//   'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
+//   'css/animate.css',
+//   'js/libs/jquery.js'
+// ];
 
 self.addEventListener('install', evt => {
 
@@ -33,7 +33,9 @@ self.addEventListener('install', evt => {
 
   const cacheImmutable = caches.open(IMMUTABLE_CACHE).then(cache => cache.addAll(APP_SHELL_IMMUTABLE));
 
-  evt.waitUntil(Promise.all([cacheStatic, cacheImmutable]));
+  // evt.waitUntil(Promise.all([cacheStatic, cacheImmutable]));
+
+  evt.waitUntil(Promise.all([cacheStatic]));
 
 });
 
