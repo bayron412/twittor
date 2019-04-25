@@ -8,15 +8,15 @@ const IMMUTABLE_CACHE = 'immutable-v1';
 const APP_SHELL = [
   // '/',
   'index.html',
-  'css/style.css',
-  'img/favicon.ico',
-  'img/avatars/hulk.jpg',
-  'img/avatars/ironman.jpg',
-  'img/avatars/spiderman.jpg',
-  'img/avatars/thor.jpg',
-  'img/avatars/wolverine.jpg',
-  'js/app.js',
-  'js/sw-utils.js'
+  // 'css/style.css',
+  // 'img/favicon.ico',
+  // 'img/avatars/hulk.jpg',
+  // 'img/avatars/ironman.jpg',
+  // 'img/avatars/spiderman.jpg',
+  // 'img/avatars/thor.jpg',
+  // 'img/avatars/wolverine.jpg',
+  // 'js/app.js',
+  // 'js/sw-utils.js'
 ];
 
 // const APP_SHELL_IMMUTABLE = [
@@ -39,42 +39,42 @@ self.addEventListener('install', evt => {
 
 });
 
-self.addEventListener('activate', evt => {
-
-  const resp = caches.keys()
-    .then(keys => {
-
-      for (let key of keys) {
-
-        if (key !== STATIC_CACHE && key.includes('static')) {
-          return caches.delete(key);
-        }
-
-      }
-
-    });
-
-  evt.waitUntil(resp);
-
-});
-
-self.addEventListener('fetch', evt => {
-
-  const resp = caches.match(evt.request).then(res => {
-
-    if (res) {
-      return res;
-    }
-    else {
-
-      return fetch(evt.request).then(newResp => {
-        return updateChache(DYNAMIC_CACHE, evt.request, newResp);
-      });
-
-    }
-
-  });
-
-  evt.respondWith(resp);
-
-});
+// self.addEventListener('activate', evt => {
+//
+//   const resp = caches.keys()
+//     .then(keys => {
+//
+//       for (let key of keys) {
+//
+//         if (key !== STATIC_CACHE && key.includes('static')) {
+//           return caches.delete(key);
+//         }
+//
+//       }
+//
+//     });
+//
+//   evt.waitUntil(resp);
+//
+// });
+//
+// self.addEventListener('fetch', evt => {
+//
+//   const resp = caches.match(evt.request).then(res => {
+//
+//     if (res) {
+//       return res;
+//     }
+//     else {
+//
+//       return fetch(evt.request).then(newResp => {
+//         return updateChache(DYNAMIC_CACHE, evt.request, newResp);
+//       });
+//
+//     }
+//
+//   });
+//
+//   evt.respondWith(resp);
+//
+// });
