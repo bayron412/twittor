@@ -35,7 +35,7 @@ self.addEventListener('install', evt => {
 
   // evt.waitUntil(Promise.all([cacheStatic, cacheImmutable]));
 
-  evt.waitUntil(Promise.all([cacheStatic]));
+  evt.waitUntil(cacheStatic);
 
 });
 
