@@ -42,7 +42,9 @@ self.addEventListener('activate', evt => {
   const resp = caches.keys()
     .then(keys => {
 
-      for (let key of keys) {
+      // for (let key of keys) {
+
+      keys.forEach(hey => {
 
         if (key !== STATIC_CACHE && key.includes('static')) {
           return caches.delete(key);
@@ -52,7 +54,11 @@ self.addEventListener('activate', evt => {
           return caches.delete(key);
         }
 
-      }
+      });
+
+
+
+      // }
 
     });
 
